@@ -25,11 +25,11 @@ export class AppComponent implements OnInit {
     this.store.dispatch(new GetCart()).subscribe();
 
     // uncomment this part to see it actually working well;
-    this.cartService.cart.subscribe(cart => console.log(cart));
-    this.cartService.update();
-    this.cartService.update();
-    this.cartService.update();
-    this.cartService.update();
-    this.cartService.update();
+    // this.cartService.cart.subscribe(cart => console.log(cart));
+    // this.cartService.update();
+    // this.cartService.update();
+    // this.cartService.update();
+    // this.cartService.update();
+    // this.cartService.update();
   }
 }
