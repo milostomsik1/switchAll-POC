@@ -10,7 +10,7 @@ export class CartService {
 
   constructor(private httpClient: HttpClient) { }
 
-  get cart() {
+  get cart(): Observable<Item[]> {
     return this.queue
       .asObservable()
       .pipe(
@@ -18,7 +18,7 @@ export class CartService {
       );
   }
 
-  update(): Observable<Item[]> {
+  update() {
     const request = this.httpClient
       .get<Item[]>('https://jsonplaceholder.typicode.com/posts')
       .pipe(
@@ -26,8 +26,6 @@ export class CartService {
       );
 
     this.enqueue(request);
-
-    return this.cart;
   }
 
   private enqueue(request: Observable<any>) {
