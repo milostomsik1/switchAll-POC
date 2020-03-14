@@ -20,6 +20,7 @@ export class CartState {
   GetCart(ctx: StateContext<Cart>) {
     this.cartService.update();
 
+    // The issue is here, this is causing multiple responses
     return this.cartService.cart.pipe(
       tap(cart => {
         const state = produce(ctx.getState(), draft => {

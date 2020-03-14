@@ -10,6 +10,7 @@ export class CartService {
 
   constructor(private httpClient: HttpClient) { }
 
+  // this part is working well if we just use it without store
   get cart(): Observable<Item[]> {
     return this.queue
       .asObservable()
