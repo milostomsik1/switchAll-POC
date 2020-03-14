@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     // this part isnt working as expected due to several calls made to cartService.cart in store
+    // check NETWORK to see multiple requests executed
     this.store.select(CartState).subscribe(cart => console.log(cart));
     this.store.dispatch(new GetCart()).subscribe();
     this.store.dispatch(new GetCart()).subscribe();
