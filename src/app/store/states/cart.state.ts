@@ -1,11 +1,10 @@
 import { State, Action, StateContext } from '@ngxs/store';
-import { Cart, Item } from 'src/app/models/cart.model';
+import { Cart } from 'src/app/models/cart.model';
 import { GetCart } from '../actions/cart.actions';
 import { produce } from 'immer';
 import { Injectable } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
-import { tap, switchAll, mergeAll } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable()
 @State<Cart>({
