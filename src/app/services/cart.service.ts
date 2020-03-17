@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, } from 'rxjs';
 import { delay, switchAll } from 'rxjs/operators';
 import { Item } from '../models/cart.model';
 
@@ -8,15 +8,14 @@ import { Item } from '../models/cart.model';
 export class CartService {
   private queue = new Subject<Observable<Item[]>>();
 
-  constructor(private httpClient: HttpClient) { }
+  cart: Subject<Item[]> = new Subject();
 
-  // this part is working well if we just use it without store
-  get cart(): Observable<Item[]> {
-    return this.queue
-      .asObservable()
+  constructor(private httpClient: HttpClient) {
+    this.queue
       .pipe(
-        switchAll()
-      );
+        switchAll(),
+      )
+      .subscribe(cart => this.cart.next(cart));
   }
 
   update() {

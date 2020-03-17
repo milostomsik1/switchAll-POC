@@ -27,7 +27,6 @@ export class CartState {
     console.log('GetCart Action');
     this.cartService.update();
     // here we could modify the state for immediate feedback to the user
-
   }
 
   @Action(CartLoaded)
