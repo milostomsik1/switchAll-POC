@@ -17,7 +17,7 @@ export class CartState {
   constructor(private cartService: CartService, private store: Store) {
     // here we dispatch the CartLoaded Action/Event when the latest pending request
     // has a response
-    this.cartService.cart.subscribe(items =>
+    this.cartService.onDataLoaded().subscribe(items =>
       store.dispatch(new CartLoaded(items))
     );
   }
